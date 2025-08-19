@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Object Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="app">
+      <!-- Left: Profile & Movies -->
+      <section class="card">
+        <h1>🎓 Student Mini Profile</h1>
+        <div class="kv">
+          <div class="k">Name</div>
+          <div class="v"><strong id="v-name"></strong></div>
+          <div class="k">ID</div>
+          <div class="v"><strong id="v-id"></strong></div>
+          <div class="k">Age</div>
+          <div class="v"><strong id="v-age"></strong></div>
+          <div class="k">City</div>
+          <div class="v"><strong id="v-address"></strong></div>
+          <div class="k">Marital</div>
+          <div class="v"><strong id="v-married"></strong></div>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2>👥 Friends</h2>
+        <div id="friends" class="list"></div>
+
+        <div class="hr"></div>
+
+        <h2>🎬 Favorite Movies</h2>
+        <div id="movies" class="stack"></div>
+      </section>
+
+      <!-- Right: Actions -->
+      <section class="card">
+        <h1>🔎 Nested Access Playground</h1>
+        <div class="btns">
+          <button id="btn-bestfriend" class="ok">Best Friend’s Hobby</button>
+          <button id="btn-second-actress" class="outline">Actress of 2nd Movie</button>
+          <button id="btn-first-movie" class="outline">Full 1st Movie Info</button>
+          <button id="btn-count" class="outline">How Many Friends?</button>
+          <button id="btn-profile" class="warn">Print Full Profile</button>
+        </div>
+
+        <div class="hr"></div>
+        <div class="tag">Output</div>
+        <pre id="output" class="output">// click a button to see results here</pre>
+
+        <div class="footer">
+          Tip: Explore the code to see how we safely access deep properties and map arrays.
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
