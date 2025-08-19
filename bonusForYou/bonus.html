@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .results {
+      max-width: 500px;
+      margin: auto;
+    }
+    .product {
+      background: #fff;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .product h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .product p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔍 Product Search</h1>
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Type to search (e.g. phone, laptop)">
+  </div>
+
+  <div class="results" id="results"></div>
+
+  <script>
+    const products = [
+      {id: 1, name: ' phone', price: 12000, color: 'black'},
+      {id: 2, name: ' laptop', price: 22000, color: 'black'},
+      {id: 3, name: ' watch', price: 3000, color: 'black'},
+      {id: 4, name: ' tablet', price: 6000, color: 'black'},
+      {id: 5, name: 'camera', price: 8000, color: 'black'},
+      {id: 6, name: 'mouse', price: 2000, color: 'black'},
+      {id: 7, name: 'laptop keyboard', price: 5000, color: 'black'},
+      {id: 8, name: 'printer', price: 6000, color: 'black'},
+    ];
+
+    const searchInput = document.getElementById('search');
+    const resultsDiv = document.getElementById('results');
+
+    function displayProducts(items) {
+      resultsDiv.innerHTML = '';
+      if (items.length === 0) {
+        resultsDiv.innerHTML = '<p>No products found...</p>';
+        return;
+      }
+      items.forEach(product => {
+        const div = document.createElement('div');
+        div.classList.add('product');
+        div.innerHTML = `
+          <h3>${product.name}</h3>
+          <p>Price: ${product.price} BDT</p>
+          <p>Color: ${product.color}</p>
+        `;
+        resultsDiv.appendChild(div);
+      });
+    }
+
+    function matchedProducts(products, keyword){
+      if (!keyword) return products; // যদি কিছু না লিখে তখন সব দেখাবে
+      const words = keyword.toLowerCase().split(" ");
+      return products.filter(product =>
+        words.every(word => product.name.toLowerCase().includes(word))
+      );
+    }
+
+    // প্রথমে সব প্রোডাক্ট দেখাই
+    displayProducts(products);
+
+    // যখন টাইপ করবে
+    searchInput.addEventListener('keyup', () => {
+      const keyword = searchInput.value.trim();
+      const matched = matchedProducts(products, keyword);
+      displayProducts(matched);
+    });
+  </script>
+</body>
+</html>
