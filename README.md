@@ -51,7 +51,7 @@ Example layout:
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/student-profile.git
+git clone https://github.com/joinvnexus/student-profile.git
 cd student-profile
 ```
 
